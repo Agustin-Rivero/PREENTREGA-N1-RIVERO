@@ -1,3 +1,8 @@
+const boton = document.createElement('button');
+boton.innerText = 'Lista de mascotas';
+const resultado = document.getElementById('resultado');
+resultado.appendChild(boton);
+boton.onclick = filtrarMascota;
 class Mascota {
     constructor(especie, raza, edad, tamaño, genero) {
         this.especie = especie;
@@ -14,6 +19,7 @@ mascotas.push(new Mascota("perro","labrador", "adulto" , "mediano", "hembra"));
 mascotas.push(new Mascota("perro","galgo", "cachorro" , "chico", "hembra"));
 mascotas.push(new Mascota("gato","siames","joven" , "chico", "macho"));
 mascotas.push(new Mascota("gato","persa", "joven" , "chico", "macho"));
+
 
 let especie = prompt("Solicitar especie")
 let raza = prompt("Solicitar raza")
@@ -70,7 +76,9 @@ function filtrarMascota(){
     let resultado = mascotas.filter(filtrarEspecie).filter(filtrarRaza).filter(filtrarEdad).filter(filtrarTamaño).filter(filtrarGenero);
     mostrarMascotas(resultado)
 }
-filtrarMascota();
+
+
+
 
 function mostrarMascotas(mascotas){
 mascotas.forEach (mascota =>{
