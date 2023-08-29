@@ -1,6 +1,13 @@
 const boton = document.createElement('button');
 boton.innerText = 'Lista de mascotas';
 const resultado = document.getElementById('resultado');
+function cambiarColorEncima() {
+    boton.style.backgroundColor = 'blue';}
+    function restaurarColorOriginal() {
+        setTimeout(function () {
+            boton.style.backgroundColor = ''; }, 2000);}
+            boton.addEventListener('mouseover', cambiarColorEncima);
+            boton.addEventListener('mouseout', restaurarColorOriginal);
 resultado.appendChild(boton);
 boton.onclick = filtrarMascota;
 class Mascota {
@@ -36,39 +43,24 @@ const datosBusqueda = {
     genero: genero
 }
 
-function filtrarEspecie(mascota){
-    if(datosBusqueda.especie){
-        return mascota.especie == datosBusqueda.especie
-    }
-    return mascota;
+function filtrarEspecie(mascota) {
+    return datosBusqueda.especie ? mascota.especie == datosBusqueda.especie : mascota;
 }
 
-function filtrarRaza(mascota){
-    if(datosBusqueda.raza){
-        return mascota.raza == datosBusqueda.raza
-    }
-    return mascota;
+function filtrarRaza(mascota) {
+    return datosBusqueda.raza ? mascota.raza == datosBusqueda.raza : mascota;
 }
 
-function filtrarEdad(mascota){
-    if(datosBusqueda.edad){
-        return mascota.edad == datosBusqueda.edad
-    }
-    return mascota;
+function filtrarEdad(mascota) {
+    return datosBusqueda.edad ? mascota.edad == datosBusqueda.edad : mascota;
 }
 
-function filtrarTamaño(mascota){
-    if(datosBusqueda.tamaño){
-        return mascota.tamaño == datosBusqueda.tamaño
-    }
-    return mascota;
+function filtrarTamaño(mascota) {
+    return datosBusqueda.tamaño ? mascota.tamaño == datosBusqueda.tamaño : mascota;
 }
 
-function filtrarGenero(mascota){
-    if(datosBusqueda.genero){
-        return mascota.genero == datosBusqueda.genero
-    }
-    return mascota;
+function filtrarGenero(mascota) {
+    return datosBusqueda.genero ? mascota.genero == datosBusqueda.genero : mascota;
 }
 
 
@@ -78,10 +70,12 @@ function filtrarMascota(){
 }
 
 
-
-
 function mostrarMascotas(mascotas){
 mascotas.forEach (mascota =>{
 document.write("<p>" + mascota.especie + " " + mascota.raza + " " + mascota.edad + " " + mascota.tamaño + " " + mascota.genero + "</p>")
 })
 }
+
+
+
+
